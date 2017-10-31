@@ -1,0 +1,109 @@
+<!-- 列表监测 -->
+<div class="entry-box">
+    <div class="map-top ta-c fs-28 c-6">
+       <span class="d-ib location1">85</span>
+       <span class="d-ib location2">5</span>
+       <span class="d-ib location3">3</span>
+    </div>
+    <div class="entry p-r">
+        <p class="entry-title fs-28 c-3">新荣区>北京中科核安科技有限公司>源库2号源</p>
+        <div class="entry-box p-r fs-26 c-6">
+            <p>监测时间：2017-10-20 15:40:25</p>
+            <p>剂量值：0.15uSv/h</p>
+            <p>状态：<span class="red">报警</span></p>
+            <span class="police-img p-a d-ib"></span>
+            <div class="police d-n">
+                <p class="fs-20 c-6">剂量值（0.15uSv/h）</p>
+                <div class="graph2"></div>
+            </div>
+        </div>
+        <i></i>
+    </div>
+    <div class="entry p-r">
+        <p class="entry-title fs-28 c-3">新荣区>北京中科核安科技有限公司>源库2号源</p>
+        <div class="entry-box p-r fs-26 c-6">
+            <p>监测时间：2017-10-20 15:40:25</p>
+            <p>剂量值：0.15uSv/h</p>
+            <p>状态：<span class="green">正常</span></p>
+        </div>
+        <i></i>
+    </div>
+    <div class="entry p-r">
+        <p class="entry-title fs-28 c-3">新荣区>北京中科核安科技有限公司>源库2号源</p>
+        <div class="entry-box p-r fs-26 c-6">
+            <p>监测时间：2017-10-20 15:40:25</p>
+            <p>剂量值：0.15uSv/h</p>
+            <p>状态：<span class="green">正常</span></p>
+        </div>
+        <i></i>
+    </div>
+    <div class="entry p-r">
+        <p class="entry-title fs-28 c-3">新荣区>北京中科核安科技有限公司>源库2号源</p>
+        <div class="entry-box p-r fs-26 c-6">
+            <p>监测时间：2017-10-20 15:40:25</p>
+            <p>剂量值：0.15uSv/h</p>
+            <p>状态：<span class="green">正常</span></p>
+        </div>
+        <i></i>
+    </div>
+</div>
+
+<script>
+$(".entry i").click(function(){
+    $(this).parents(".entry").find(".police").toggle();
+})
+
+
+
+$(function(){
+    $('.graph2').highcharts({
+        title: { text:null, },
+        legend: { enabled: false },
+        colors: ['#FF7D82','#FE1212','#E89C7B','#A770C1','#C17070'],
+        tooltip: {
+            backgroundColor: '#4C4C4C',
+            borderWidth: 0,
+            style: {
+                color: "#ffffff",
+                fontWeight: "100",
+                textAlign:"center",
+            }
+        },
+        credits: {
+            text: '',
+            href: ''
+        },
+        chart: {
+            type: 'spline',
+        },
+        xAxis: {
+            tickWidth:0,
+            categories: ['13:40','13:45','13:50','13:55','14:00','14:05','14:10','14:15','14:20','14:25','14:30','14:35','14:40','14:45','14:50','14:55','15:00','15:05','15:10','15:15','15:20','15:25','15:30','15:35','15:40','15:45','15:50','15:55','16:00','16:05','16:10','16:15','16:20','16:25']
+        },
+        yAxis:{
+            title:'',  
+            lineWidth: 1
+        },
+        plotOptions: {
+            spline: {
+                lineWidth: 1,
+                states: {
+                    hover: {
+                        lineWidth: 1
+                    }
+                },
+            }
+        },
+        series: [{
+            name: '剂量值（0.15uSv/h）',
+            data: [0.23,0.21,0.2,0.18,0.19,0.12,0.1,0.05,0.05,0.15,0.05,0.05,0.05,0.18,0.19,0.12,0.05,0.05,0.05,0.05,0.15,0.05,0.05,0.05,0.15,0.05,0.05,0.15,0.05,0.05,0.15,0.05,0.15,0.05,0.05,0.05]
+        }],
+        navigation: {
+            menuItemStyle: {
+                fontSize: '10px'
+            }
+        }
+    });
+})
+</script>
+

@@ -1,0 +1,71 @@
+<!--底部导航-->
+<div class="footer ta-c p-f o-h bg-f w">
+    <div class="footer-box fs-18 c-6 ta-c">
+        <div class="module1 d-ib module11 red" onclick="switchs(1)">
+            <p>地图监测</p>
+        </div>
+        <div class="module2 d-ib" onclick="switchs(2)">
+            <p>列表监测</p>
+        </div>
+        <div class="module3 d-ib" onclick="switchs(3)">
+            <p>视频监控</p>
+        </div>
+        <div class="module4 d-ib" onclick="switchs(4)">
+            <p>报警处置</p>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(".footer-box div").click(function(){
+        $(".footer-box div").removeClass('red module11 module22 module33 module44');
+		$(this).addClass('red');
+    })
+
+    function switchs(nav) {
+        switch (nav) {
+            case 1:
+                $('#content-box').load('map.html', function () {
+                    $(".title").text("地图监测");
+                    $(".module1").addClass("module11");
+                });
+                break;
+            case 2:
+                $('#content-box').load('entry.html', function () {
+                    $(".title").text("列表监测");
+                    $(".module2").addClass("module22");
+                });
+                break;
+            case 3:
+                $('#content-box').load('video.html', function () {
+                    $(".title").text("视频监控");
+                    $(".module3").addClass("module33");
+                    $(".screen-a").attr("onclick","switchs(6)")
+                });
+                break;
+            case 4:
+                $('#content-box').load('alarm.html', function () {
+                    $(".title").text("报警处置");
+                    $(".module4").addClass("module44");
+                });
+                break;
+            case 5:
+                $('#content-box').load('screen1.html', function () {
+                    
+                });
+                break;
+            case 6:
+                $('#content-box').load('screen2.html', function () {
+                    
+                });
+                break;
+        }
+    }
+</script>
+
+
+
+
+
+
+

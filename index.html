@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;"  />
+<title>放射源在线监控系统</title>
+<link href="css/base-wx.css" rel="stylesheet" type="text/css">
+<link href="css/module.css" rel="stylesheet" type="text/css">
+</head>
+
+<body class="p-r">
+	<div id="header"></div>
+	<div id="content-box"></div>
+	<div id="footer"></div>
+</body>
+<script type="text/javascript" src="https://api.map.baidu.com/getscript?v=1.3&ak=&Y9A394tccAm5s6msdeNTurBA23wI14gS"></script>
+<script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
+<script type="text/javascript" src="js/hotcss.js"></script>
+<script type="text/javascript" src="http://code.highcharts.com/highcharts.js"></script>
+<script type="text/javascript" src="https://img.hcharts.cn/highcharts/highcharts-more.js"></script>
+
+<script>
+$(document).ready(function(){
+	$("#header").load('header.html');
+	$("#footer").load('footer.html');
+	$("#content-box").load('map.html');
+});
+
+</script>
+</html>

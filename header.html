@@ -1,0 +1,32 @@
+<!--头部-->
+<div class="herder c-f ta-c p-r">
+    <a href="javascript:;" class="personal-a d-ib f-l"></a>
+    <span class="title d-ib fs-32">地图监测</span>
+    <a href="javascript:;" class="screen-a d-ib f-r" onclick="switchs(5)"></a>
+    <div class="c-b"></div>
+</div>
+<div class="user-pop p-f d-n">
+    <div class="user-box p-a ta-c">
+        <div class="user-top fs-30 c-f">
+            <img src="img/index15.png" alt="">
+            <span>用户名：zhongkehean</span>
+        </div>
+        <p class="fs-32 c-6">是否退出登录</p>
+        <div class="uesr-bottom fs-32">
+            <a href="javascript:;" class="cancel d-ib f-l">取消</a>
+            <a href="javascript:;" class="confirm d-ib f-r">确定</a>
+            <div class="c-b"></div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(".personal-a").click(function(){
+        $(".user-pop").show();
+    })
+    $(".cancel,.confirm").click(function(){
+        $(".user-pop").hide();
+    })
+
+</script>
+

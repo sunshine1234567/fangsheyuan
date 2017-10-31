@@ -1,0 +1,79 @@
+<!-- 报警处置 -->
+<div class="ala">
+    <div class="map-top ta-c fs-28 c-6">
+       <span class="d-ib location1">85</span>
+       <span class="d-ib location2">5</span>
+       <span class="d-ib location3">3</span>
+    </div>
+    <div class="alarm p-r">
+        <p class="alarm-title fs-28 c-3">新荣区>北京中科核安科技有限公司>源库2号源</p>
+        <div class="alarm-box p-r fs-26 c-6">
+            <div>监测时间：2017-10-20 15:40:25</div>
+            <div>剂量值：</div>
+            <div>报警状态：<span class="red">未解除</span></div>
+            <div class="baoc">报警处置：<a href="javascript:;" class="handle d-ib">处置</a></div>
+            <div class="handle-box d-n">
+                <p>处置说明:</p>
+                <textarea></textarea>
+                <p>处置结果:</p>
+                <textarea></textarea>
+                <div class="refer-box ta-c fs-30">
+                    <a href="javascript:;" class="confirm">确定</a>
+                    <a href="javascript:;" class="cancel">取消</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="alarm p-r">
+        <p class="alarm-title fs-28 c-3">新荣区>北京中科核安科技有限公司>源库2号源</p>
+        <div class="alarm-box p-r fs-26 c-6">
+            <div>监测时间：2017-10-20 15:40:25</div>
+            <div>剂量值：</div>
+            <div>报警状态：<span class="red">未解除</span></div>
+            <div class="baoc">报警处置：<a href="javascript:;" class="handle d-ib">处置</a></div>
+            <div class="handle-box d-n">
+                <p>处置说明:</p>
+                <textarea></textarea>
+                <p>处置结果:</p>
+                <textarea></textarea>
+                <div class="refer-box ta-c fs-30">
+                    <a href="javascript:;" class="confirm">确定</a>
+                    <a href="javascript:;" class="cancel">取消</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="alarm p-r">
+        <p class="alarm-title fs-28 c-3">新荣区>北京中科核安科技有限公司>源库2号源</p>
+        <div class="alarm-box p-r fs-26 c-6">
+            <div>监测时间：2017-10-20 15:40:25</div>
+            <div>剂量值：</div>
+            <div>报警状态：<span class="green">已解除</span></div>
+            <div class="baoc">报警处置：<a href="javascript:;" class="handle d-ib">详情</a></div>
+            <div class="handle-box d-n">
+                <p>处置说明:</p>
+                <textarea>疏散人群，成立应急小组，污染处理。</textarea>
+                <p>处置结果:</p>
+                <textarea>处理完成</textarea>
+                <div class="revert-box ta-r fs-30">
+                    <a href="javascript:;" class="revert ta-c">返回</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+$(".alarm-box .handle").click(function(){
+    $(this).parentsUntil(".alarm").find(".baoc").hide();
+    $(this).parentsUntil(".alarm-box").next(".handle-box").show();
+})
+
+$(".confirm,.cancel,.revert").click(function(){
+    $(this).parents(".handle-box").hide();
+    $(this).parents(".alarm-box").find(".baoc").show();
+})
+
+
+</script>
+

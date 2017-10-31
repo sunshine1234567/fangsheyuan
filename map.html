@@ -1,0 +1,56 @@
+<!-- 地图监测 -->
+<div class="map-box">
+    <div class="map-top ta-c fs-28rem c-6">
+       <span class="d-ib location1">85</span>
+       <span class="d-ib location2">5</span>
+       <span class="d-ib location3">3</span>
+    </div>
+    <div id="map"></div>
+</div>
+
+<script>
+$(":checkbox").attr("checked",false);
+
+$(".choosebox :checkbox").click(function(){
+    if($(this).prop("checked") == true){
+        $(this).next("i").addClass("ai");
+    }else{
+        $(this).next("i").removeClass("ai");
+    }
+})
+$("#check-site").click(function(){
+    var checksite = $("#check-site").prop("checked");
+    if( checksite == true ){//选中
+        $(".screen1 :checkbox").attr("checked",true);
+        $(".screen1 i").addClass("ai");
+    }else{
+        $(this).next("i").removeClass("ai");
+    }
+})
+$("#unit-site").click(function(){
+    var checksite = $("#unit-site").prop("checked");
+    if( checksite == true ){//选中
+        $(".screen2 :checkbox").attr("checked",true);
+        $(".screen2 i").addClass("ai");
+    }else{
+        $(this).next("i").removeClass("ai");
+    }
+})
+$("#ation-site").click(function(){
+    var checksite = $("#ation-site").prop("checked");
+    if( checksite == true ){//选中
+        $(".screen3 :checkbox").attr("checked",true);
+        $(".screen3 i").addClass("ai");
+    }else{
+        $(this).next("i").removeClass("ai");
+    }
+})
+
+
+
+//百度地图
+    var map = new BMap.Map("map");		//在map容器中创建一个地图,参数map为div的id属性;
+    var point = new BMap.Point(116.404, 39.915);  // 创建点坐标  
+    map.centerAndZoom(point, 15);
+</script>
+
