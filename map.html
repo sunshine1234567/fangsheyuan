@@ -48,9 +48,92 @@ $("#ation-site").click(function(){
 
 
 
+
 //百度地图
     var map = new BMap.Map("map");		//在map容器中创建一个地图,参数map为div的id属性;
     var point = new BMap.Point(116.404, 39.915);  // 创建点坐标  
     map.centerAndZoom(point, 15);
+    var myIcon = new BMap.Icon("img/index7.png", new BMap.Size(29,37));//设置点的新图标
+    var marker = new BMap.Marker(point,{icon:myIcon});
+    map.addOverlay(marker);
+    var sContent ="<div class='mapContent' style='z-index:99;background:rgba(74,74,74,0.7)'>"+
+        "<div class='title' style='text-align:center;color:#ECE8E8'>源库一号源</div>"+
+        "<div style='color:#ECE8E8;padding-left:10px;'>剂量值：（0.15uSv/h）</div>"+
+        "<div style='color:#ECE8E8;padding-left:10px;'>源状态：<span style='color:#467483'>作业中</span></div>"+
+        "<p style='color:#ECE8E8;padding-left:10px;'>时&nbsp;&nbsp;&nbsp;间：2017-10-20 15:40:25</p>"+
+        "</div>"+
+        "<div style='height:3rem'>"+
+                "<p class='fs-20 c-6' style='z-index:99;;padding-left:10px;color:#ECE8E8;background:rgba(74,74,74,0.7)'>剂量值（0.15uSv/h）</p>"+
+                "<div class='graph2'></div>"+
+            "</div>";//窗口内容
+    var infoWindow = new BMap.InfoWindow(sContent);
+    marker.addEventListener("click", function(){          
+	   this.openInfoWindow(infoWindow);
+       chart();
+    });
+
+function chart(){
+    $('.graph2').highcharts({
+        title: { text:null, },
+        legend: { enabled: false },
+        colors: ['#FF7D82','#FE1212','#E89C7B','#A770C1','#C17070'],
+        tooltip: {
+            backgroundColor: '#4C4C4C',
+            borderWidth: 0,
+            style: {
+                color: "#fff",
+                fontWeight: "100",
+                textAlign:"center",
+            }
+        },
+        credits: {
+            text: '',
+            href: ''
+        },
+        chart: {
+            backgroundColor:"rgba(74,74,74,0.7)",
+            type: 'spline',
+            style: {
+                color: '#fff'
+            }
+        },
+        xAxis: {
+            tickWidth:0,
+            categories: ['13:40','13:45','13:50','13:55','14:00','14:05','14:10','14:15','14:20','14:25','14:30','14:35','14:40','14:45','14:50','14:55','15:00','15:05','15:10','15:15','15:20','15:25','15:30','15:35','15:40','15:45','15:50','15:55','16:00','16:05','16:10','16:15','16:20','16:25'],
+            gridLineColor:"#fff",
+            tickColor:"#fff",
+            lineColor:"#fff",
+            minorGridLineColor:"#fff",
+            color:"#fff"
+        },
+        yAxis:{
+            title:'',  
+            lineWidth: 1,
+            gridLineColor:"#fff",
+            tickColor:"#fff",
+            lineColor:"#fff",
+            minorGridLineColor:"#fff"
+        },
+        plotOptions: {
+            spline: {
+                lineWidth: 1,
+                states: {
+                    hover: {
+                        lineWidth: 1
+                    }
+                },
+            }
+        },
+        series: [{
+            name: '剂量值（0.15uSv/h）',
+            data: [0.23,0.21,0.2,0.18,0.19,0.12,0.1,0.05,0.05,0.15,0.05,0.05,0.05,0.18,0.19,0.12,0.05,0.05,0.05,0.05,0.15,0.05,0.05,0.05,0.15,0.05,0.05,0.15,0.05,0.05,0.15,0.05,0.15,0.05,0.05,0.05]
+        }],
+        navigation: {
+            menuItemStyle: {
+                fontSize: '10px'
+            }
+        }
+    });
+}
 </script>
 

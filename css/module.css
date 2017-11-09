@@ -9,10 +9,10 @@
 
 /* 底部导航 */
 .footer{height: 0.89rem;line-height: 1.42rem;border-top: 1px solid #DADADA;bottom: 0;left: 0;}
-.footer-box .module1{padding: 0 0.4rem;margin:0 0.15rem;background: url(../img/footer5.png) no-repeat center 0.16rem;background-size:0.4rem 0.39rem;}
-.footer-box .module2{padding: 0 0.4rem;margin:0 0.15rem;background: url(../img/footer6.png) no-repeat center 0.16rem;background-size:0.37rem 0.39rem;}
-.footer-box .module3{padding: 0 0.4rem;margin:0 0.15rem;background: url(../img/footer7.png) no-repeat center 0.16rem;background-size:0.34rem 0.39rem;}
-.footer-box .module4{padding: 0 0.4rem;margin:0 0.15rem;background: url(../img/footer8.png) no-repeat center 0.16rem;background-size:0.31rem 0.38rem;}
+.footer-box .module1{width:24%;background: url(../img/footer5.png) no-repeat center 0.16rem;background-size:0.4rem 0.39rem;}
+.footer-box .module2{width:24%;background: url(../img/footer6.png) no-repeat center 0.16rem;background-size:0.37rem 0.39rem;}
+.footer-box .module3{width:24%;background: url(../img/footer7.png) no-repeat center 0.16rem;background-size:0.34rem 0.39rem;}
+.footer-box .module4{width:24%;background: url(../img/footer8.png) no-repeat center 0.16rem;background-size:0.31rem 0.38rem;}
 
 .footer-box .module11{background: url(../img/footer1.png) no-repeat center 0.16rem;background-size:0.4rem 0.39rem;}
 .footer-box .module22{background: url(../img/footer2.png) no-repeat center 0.16rem;background-size:0.37rem 0.39rem;}

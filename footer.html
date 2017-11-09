@@ -17,12 +17,17 @@
 </div>
 
 <script>
+    var navindex = 1;//判断点击地图检测列表监测的筛选条件界面之前停留在那个界面
+
     $(".footer-box div").click(function(){
         $(".footer-box div").removeClass('red module11 module22 module33 module44');
 		$(this).addClass('red');
     })
 
     function switchs(nav) {
+        if (nav != 5 && nav != 6) {
+            navindex = nav;
+        }
         switch (nav) {
             case 1:
                 $('#content-box').load('map.html', function () {

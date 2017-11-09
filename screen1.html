@@ -172,7 +172,7 @@
             </div>
             <div class="refer-box ta-c fs-30rem">
                 <a href="javascript:;" class="confirm" onclick="switchs(1)">确定</a>
-                <a href="javascript:;" class="cancel" onclick="switchs(1)">取消</a>
+                <a href="javascript:;" class="cancel" onclick="cancel()">取消</a>
             </div>
         </form>
     </div>
@@ -215,6 +215,10 @@ $("#ation-site").click(function(){
         $(this).next("i").removeClass("ai");
     }
 })
+
+function cancel() {
+    switchs(navindex);
+}
 
 </script>
 

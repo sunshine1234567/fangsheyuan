@@ -11,7 +11,7 @@
             <p>监测时间：2017-10-20 15:40:25</p>
             <p>剂量值：0.15uSv/h</p>
             <p>状态：<span class="red">报警</span></p>
-            <span class="police-img p-a d-ib"></span>
+            <span class="police-img p-a d-ib" onclick="toAlarm()"></span>
             <div class="police d-n">
                 <p class="fs-20 c-6">剂量值（0.15uSv/h）</p>
                 <div class="graph2"></div>
@@ -49,11 +49,16 @@
 </div>
 
 <script>
-$(".entry i").click(function(){
+$(".entry .entry-box").click(function(){
     $(this).parents(".entry").find(".police").toggle();
 })
 
-
+function toAlarm(){
+    $('#content-box').load('alarm.html', function () {
+        $(".title").text("报警处置");
+        $(".module4").addClass("module44");
+    });
+}
 
 $(function(){
     $('.graph2').highcharts({
