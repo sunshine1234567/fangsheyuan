@@ -191,10 +191,11 @@ $(".choosebox :checkbox").click(function(){
 $("#check-site").click(function(){
     var checksite = $("#check-site").prop("checked");
     if( checksite == true ){//选中
-        $(".screen1 :checkbox").attr("checked",true);
+        $(".screen1 :checkbox").prop("checked",true);
         $(".screen1 i").addClass("ai");
     }else{
-        $(this).next("i").removeClass("ai");
+        $(".screen1 :checkbox").prop("checked",false);
+        $(".screen1 i").removeClass("ai");
     }
 })
 $("#unit-site").click(function(){
@@ -219,6 +220,8 @@ $("#ation-site").click(function(){
 function cancel() {
     switchs(navindex);
 }
+
+$(".map-box").height($(window).height() - 111);
 
 </script>
 

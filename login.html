@@ -1,11 +1,13 @@
 <!doctype html>
 <html>
+
 <head>
-<meta charset="utf-8">
-<title>放射源在线监控系统</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
-<link href="css/base-wx.css" rel="stylesheet" type="text/css">
-<link href="css/login.css" rel="stylesheet" type="text/css">
+    <meta charset="utf-8">
+    <title>放射源在线监控系统</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"
+    />
+    <link href="css/base-wx.css" rel="stylesheet" type="text/css">
+    <link href="css/login.css" rel="stylesheet" type="text/css">
 </head>
 
 <body class="login-body">
@@ -16,10 +18,10 @@
         <div class="login-box ta-c">
             <form action="" method="post" id="login" class="fs-16">
                 <div class="userName-box d-ib ta-l">
-                    <input type="text" id="username" name="userName" value="" maxlength="20" placeholder="用户名"/>
+                    <input type="text" id="username" name="userName" value="" maxlength="20" placeholder="用户名" />
                 </div>
                 <div class="password-box d-ib ta-l">
-                    <input type="password" id="password" name="password" value="" maxlength="22" placeholder="密码"/>
+                    <input type="password" id="password" name="password" value="" maxlength="22" placeholder="密码" />
                 </div>
                 <div class="remember">
                     <label>
@@ -36,13 +38,15 @@
     </div>
     <p class="copyright fs-24 ta-c">北京中科核安科技有限公司</p>
 </body>
-<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
 <script type="text/javascript" src="js/hotcss.js"></script>
 <script>
-$(".submit").click(function(){
-    $("#login").submit();
-    window.location = "index.html";
-})
-
+    $(".submit").click(function () {
+        $("#login").submit();
+        window.location = "index.html";
+    })
+    var marginTop = $(window).height()-527-18;
+    $(".copyright").css("marginTop",marginTop);
 </script>
+
 </html>

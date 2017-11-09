@@ -91,6 +91,11 @@
 .handle-box textarea{width: 6.55rem;height: 1.62rem;}
 
 
+.map-box{overflow: auto;}
+.video-box{overflow: auto;}
+
+
+
 
 
 
