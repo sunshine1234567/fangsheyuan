@@ -33,12 +33,14 @@
                 $('#content-box').load('map.html', function () {
                     $(".title").text("地图监测");
                     $(".module1").addClass("module11");
+                    $(".screen-a").attr("onclick","switchs(5)")
                 });
                 break;
             case 2:
                 $('#content-box').load('entry.html', function () {
                     $(".title").text("列表监测");
                     $(".module2").addClass("module22");
+                    $(".screen-a").attr("onclick","switchs(5)")
                 });
                 break;
             case 3:
@@ -52,11 +54,11 @@
                 $('#content-box').load('alarm.html', function () {
                     $(".title").text("报警处置");
                     $(".module4").addClass("module44");
+                    $(".screen-a").attr("onclick","switchs(5)")
                 });
                 break;
             case 5:
                 $('#content-box').load('screen1.html', function () {
-                    
                 });
                 break;
             case 6:

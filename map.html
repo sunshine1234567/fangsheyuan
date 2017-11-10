@@ -1,11 +1,16 @@
 <!-- 地图监测 -->
 <div class="map-box">
     <div class="map-top ta-c fs-28rem c-6">
-       <span class="d-ib location1">85</span>
-       <span class="d-ib location2">5</span>
-       <span class="d-ib location3">3</span>
+       <span class="d-ib location1" data-longitude="116.404" data-latitude="39.999" onclick="theLocation(this)">85</span>
+       <span class="d-ib location2" data-longitude="117.404" data-latitude="39.999" onclick="theLocation(this)">5</span>
+       <span class="d-ib location3" data-longitude="119.404" data-latitude="39.999" onclick="theLocation(this)">3</span>
     </div>
     <div id="map"></div>
+    <div id="r-result">
+		经度: <input id="longitude" type="text" class="d-n"/>
+		纬度: <input id="latitude" type="text" class="d-n"/>
+		<input type="button" value="查询" onclick="theLocation()" />
+	</div>
 </div>
 
 <script>
@@ -47,23 +52,22 @@ $("#ation-site").click(function(){
 })
 
 
-
-
 //百度地图
     var map = new BMap.Map("map");		//在map容器中创建一个地图,参数map为div的id属性;
     var point = new BMap.Point(116.404, 39.915);  // 创建点坐标  
     map.centerAndZoom(point, 15);
     var myIcon = new BMap.Icon("img/index7.png", new BMap.Size(29,37));//设置点的新图标
     var marker = new BMap.Marker(point,{icon:myIcon});
+    map.enableScrollWheelZoom(true);
     map.addOverlay(marker);
     var sContent ="<div class='mapContent' style='z-index:99;background:rgba(74,74,74,0.7)'>"+
-        "<div class='title' style='text-align:center;color:#ECE8E8'>源库一号源</div>"+
-        "<div style='color:#ECE8E8;padding-left:10px;'>剂量值：（0.15uSv/h）</div>"+
-        "<div style='color:#ECE8E8;padding-left:10px;'>源状态：<span style='color:#467483'>作业中</span></div>"+
-        "<p style='color:#ECE8E8;padding-left:10px;'>时&nbsp;&nbsp;&nbsp;间：2017-10-20 15:40:25</p>"+
+        "<div class='title' style='text-align:center;color:#ECE8E8;font-size:0.26rem;margin:0 0 0.2rem 0;padding-top:0.1rem;'>源库1号源</div>"+
+        "<div style='color:#ECE8E8;padding-left:10px;font-size:0.22rem;margin:0.08rem 0 0.08rem 0'>剂量值：（0.15uSv/h）</div>"+
+        "<div style='color:#ECE8E8;padding-left:10px;font-size:0.22rem;margin:0.08rem 0 0.08rem 0'>源状态：<span style='color:#3FACCD'>作业中</span></div>"+
+        "<p style='color:#ECE8E8;padding-left:10px;font-size:0.22rem;margin:0.08rem 0 0 0;padding-bottom:0.2rem;'>时&nbsp;&nbsp;&nbsp;间：2017-10-20 15:40:25</p>"+
         "</div>"+
         "<div style='height:3rem'>"+
-                "<p class='fs-20 c-6' style='z-index:99;;padding-left:10px;color:#ECE8E8;background:rgba(74,74,74,0.7)'>剂量值（0.15uSv/h）</p>"+
+                "<p class='fs-20' style='z-index:99;padding-left:10px;color:#ECE8E8;background:rgba(74,74,74,0.7)'>剂量值（0.15uSv/h）</p>"+
                 "<div class='graph2'></div>"+
             "</div>";//窗口内容
     var infoWindow = new BMap.InfoWindow(sContent);
@@ -72,7 +76,28 @@ $("#ation-site").click(function(){
        chart();
     });
 
+    // 用经纬度设置地图中心点
+	function theLocation(th){
+        var longitude = $(th).attr("data-longitude");
+        var latitude = $(th).attr("data-latitude");
+        $("#longitude").val(longitude)
+        $("#latitude").val(latitude)
+		if(document.getElementById("longitude").value != "" && document.getElementById("latitude").value != ""){
+			map.clearOverlays(); 
+			var new_point = new BMap.Point(document.getElementById("longitude").value,document.getElementById("latitude").value);
+			var marker = new BMap.Marker(new_point);  // 创建标注
+			map.addOverlay(marker);              // 将标注添加到地图中
+			map.panTo(new_point);      
+		}
+	}
+
+
+
 function chart(){
+    $(".BMap_pop div").eq(1).hide();
+    $(".BMap_pop div").eq(4).hide();
+    $(".BMap_pop div").eq(7).hide();
+    $(".BMap_pop div").eq(10).hide();
     $('.graph2').highcharts({
         title: { text:null, },
         legend: { enabled: false },
@@ -91,28 +116,37 @@ function chart(){
             href: ''
         },
         chart: {
-            backgroundColor:"rgba(74,74,74,0.7)",
+            backgroundColor:"rgba(250,250,250,0)",
             type: 'spline',
             style: {
-                color: '#fff'
-            }
+                color: '#fff',
+            },
         },
         xAxis: {
             tickWidth:0,
-            categories: ['13:40','13:45','13:50','13:55','14:00','14:05','14:10','14:15','14:20','14:25','14:30','14:35','14:40','14:45','14:50','14:55','15:00','15:05','15:10','15:15','15:20','15:25','15:30','15:35','15:40','15:45','15:50','15:55','16:00','16:05','16:10','16:15','16:20','16:25'],
+            categories: ['13:40','13:45','13:50','13:55','14:00','14:05','14:10','14:15','14:20','14:25','14:30','14:35','14:40','14:45','14:50','14:55','15:00','15:05','15:10','15:15','15:20','15:25','15:30','15:35','15:40','15:45','15:50','15:55','16:00','16:05','16:10','16:15','16:20','16:25','16:20','16:25','16:20','16:25'],
             gridLineColor:"#fff",
             tickColor:"#fff",
             lineColor:"#fff",
             minorGridLineColor:"#fff",
-            color:"#fff"
+            color:"#fff",
+            labels:{
+                style:{ // 此处可设置样式
+                    color:"#fff",
+                }
+            }
         },
         yAxis:{
             title:'',  
-            lineWidth: 1,
             gridLineColor:"#fff",
             tickColor:"#fff",
             lineColor:"#fff",
-            minorGridLineColor:"#fff"
+            minorGridLineColor:"#fff",
+            labels:{
+                style:{ // 此处可设置样式
+                    color:"#fff",
+                }
+            }
         },
         plotOptions: {
             spline: {
